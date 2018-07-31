@@ -6,9 +6,13 @@ function mostrarAumento()
 {
 	var sueldo;
 	var resultado;
-	sueldo=parseInt(document.getElementById('sueldo').value);
-	resultado=parseInt(document.getElementById('resultado').value);
-	resultado= sueldo + sueldo*0.1;
-	alert (resultado);
+
+	sueldo = parseInt(document.getElementById('sueldo').value);
+
+	resultado = parseInt(document.getElementById('resultado').value);
+
+	resultado = sueldo + sueldo * 0.10;
+
+	alert(resultado);
 
 }
