@@ -1,80 +1,128 @@
 function mostrar()
-{ 
+{
+	//VARIABLES
+	var contador;
 	var nombre;
-	var edad;
 	var sexo;
-
-	var contMayorEdad = 0;
-	var contMenorEdad = 0;
-	var contH = 0;
-	var contM = 0;
-	var nombreMayor;
-	var nombreMenor;
-	var nombreHombreMenor;
-	var mayorDeEdad;
-	var menorDeEdad;
+	var edad;
+	var nota;
+	var notaMasBaja;
+	var contadorNotas;
+	var sexoNotaMasBaja;
+	var notaPromedio;
+	var cantidadDeNotas;
+	var bandera;
+	var contadorMayores ;
+	var contadorMenores;
+	var contadorHombres;
+	var contadorMujeres;
+	var contadorVarones;
+ 	var nombreDelMayor;
+	var nombreDelMenor;
+	var nombreDelHombreMenor;
+	var edadMax;
+	var edadMin;
 	
-	var flag = 0;
-	
-	var contador = 0;
-	
-	while ( contador < 3 )
+	//INICIALIZACION
+	contador = 0;
+	bandera =0;
+	contadorMayores = 0;
+	contadorMenores = 0;
+	contadorHombres = 0;
+	contadorMujeres = 0;
+	cantidadDeNotas=0;
+	contadorVarones=0;
+	contador=1;
+	contadorNotas=0;
+	bandera=0;
+ 	while(contador<3)
+	while(contador<=5)
 	{
-		nombre = prompt("Ingrese su nombre: ");
-		edad = parseInt(prompt("Ingrese su edad: "));
-		sexo = prompt("ingrese su sexo: ");
-
-
-		if ( sexo =='h')
+		//TOMA DE DATOS
+		nombre=prompt("Escriba un nombre");
+		sexo=prompt("Escriba un sexo (f/m)");
+		edad=prompt("Escriba una edad");
+		edad=parseInt(edad);
+		contador++;
+		
+		//VALIDACION DE DATOS
+		//INGRESO Y VALIDACION DE DATOS
+		sexo=prompt("Ingrese su sexo f/m");
+		while(sexo!="f"&&sexo!="m")
 		{
-		
-			contH++;
-		
+			sexo=prompt("ERROR, escriba un sexo (f/m)");
 		}
-
+		while(edad<0 || edad>100)
+		{
+			edad=prompt("ERROR, escriba una edad");
+			edad=parseInt(edad);
+		}
+		
+ 		if(edad>=18)
+		{
+			contadorMayores++;
+		}
 		else
 		{
-		
-			contM++;
-		
+			contadorMenores++;
+			sexo=prompt("ERROR. Ingrese su sexo f/m")
 		}
-
-		if (edad > mayorDeEdad || flag == 0)
+		if(sexo=="m")
+		nota=prompt("Ingrese su nota");
+		nota=parseInt(nota);
+		while(nota<0||nota>10)
 		{
-		
-			mayorDeEdad = edad;
-			nombreMayor = nombre;
-		
+			contadorHombres++;
+			nota=prompt("ERROR. Ingrese su nota");
 		}
-
-		if ( edad < menordeEdad || flag == 0)
+		else
 		{
-		
-			menorDeEdad = edad;
-			nombreMenor = nombre;
-		
-			flag = 1;
-		
+			contadorMujeres++;
 		}
-
-		if ( sexo == 'm' && (contM == 1 || edad < nombreHombreMenor))
+ 		//BANDERA
+		if(bandera==0)
 		{
-		
-			nombreHombreMenor = nombre;
-		
-			edadHombreMenor = edad;
-		
+			edadMax=edad;
+			edadMin=edad;
+			nombreDelMayor=nombre;
+			nombreDelMenor=nombre;
+			notaMasBaja = nota;
+			sexoNotaMasBaja = sexo;
+			bandera++;
 		}
-
+ 		//Nombre del mayor o Nombre del menor
+		if(edad>edadMax)
+		if(nota<notaMasBaja)
+		{
+			nombreDelMayor=nombre;
+			notaMasBaja = nota;
+			sexoNotaMasBaja=sexo;
+		}
+		if(edad<edadMin)
+		if(sexo=="m"&&nota>=6)
+		{
+			nombreDelMenor=nombre;
+		}
+ 		//Nombre del Hombre Mas Chico
+		if(sexo=="m"&&(edad<edadMin||contadorHombres==1))
+		{
+			nombreDelHombreMenor=nombre;
+			edadMin = edad;
+			contadorVarones++;
+		}
+		contadorNotas=contadorNotas+nota;
+		cantidadDeNotas++;
 		contador++;
 	}
-
-	document.write("Contador de personas mayores de edad: " + contMayorEdad + "<br>");
-	document.write("Contador de personas menores de edad: " + contMenorEdad + "<br>");
-	document.write("Cantidad de mujeres: " + contM + "<br>");
-	document.write("Cantidad de hombres: " + contH + "<br>");
-	document.write("Nombre del mayor: " + nombreMayor + "<br>");
-	document.write("Nombre del menor: " + nombreMenor + "<br>");
-	document.write("Nombre del hombre mas chico: " + nombreHombreMenor + "<br>");
+ 	document.write("Cantidad de mayores "+contadorMayores+"<br>");
+	document.write("Cantidad de menores "+contadorMenores+"<br>");
+	document.write("Cantidad de hombres "+contadorHombres+"<br>");
+	document.write("Cantidad de mujeres "+contadorMujeres+"<br>");
+	document.write("El nombre de la persona de mayor edad es "+nombreDelMayor+"<br>");
+	document.write("El nombre de la persona de menor edad es "+nombreDelMenor+"<br>");
+	document.write("El nombre del hombre mas chico es "+nombreDelHombreMenor+"<br>");
+	notaPromedio=contadorNotas/cantidadDeNotas;
+	alert("El promedio de las notas es "+notaPromedio);
+	alert("La persona con la nota mas baja fue un "+sexoNotaMasBaja+" y se saco un "+notaMasBaja); 
+	alert("La cantidad de varones que se sacaran un 6 o mas fue de "+contadorVarones);
 }
-	
