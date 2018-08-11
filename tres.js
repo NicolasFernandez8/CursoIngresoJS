@@ -1,23 +1,24 @@
 function mostrar()
 {
-	var precio;
-	var valorDescuento;
-	var precioFinal;
+	/*
+	Pedir por prompt el importe del producto, la cantidad y el nombre, 
+	mostrar un solo mensaje con el siguiente texto : “compró la cantidad xx del producto xx 
+	, a un precio de xx, pagando el precio de xx con iva incluido”.
+	*/
 
-
-	precioFinal = document.getElementById('elPrecioFinal').value;
-	elPrecioFinal = parseInt(elPrecioFinal);
+	var importe;
+	var cantidad;
+	var nombre;
+	var iva;
+	var precioConIva;
 	
-	precio = prompt("Ingrese un precio");
-	precio = parseInt(precio);
-	
+	importe = prompt("Ingrese importe");
+	importe = parseInt(importe);
+	cantidad = prompt("Ingrese cantidad");
+	cantidad = parseInt(cantidad);
+	nombre = prompt("Ingrese su nombre");
+	iva = importe*21/100;
+	precioConIva= cantidad *(importe+iva);
 
-	descuento = prompt("Ingrese un descuento");
-	descuento = parseInt(descuento); 
-
-	valorDescuento = precio*descuento/100;
-
-	precioFinal = precio - valorDescuento;
-
-	alert("El Precio Final con descuento es: " + precioFinal);
+	alert("compro la cantidad " + cantidad + " del producto " + nombre + " , a un precio de " + importe + " , pagando el precio de " + precioConIva + " con iva incluido");
 }

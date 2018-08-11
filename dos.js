@@ -1,10 +1,15 @@
 function mostrar()
 {
-	var nombre;
+	var edad;
 	var localidad;
+	var nombre;
+	var apellido;
 
-	nombre = document.getElementById('elNombre').value;
-	localidad = document.getElementById('laLocalidad').value;
+	edad = prompt("Ingrese su edad");
+	edad = parseInt(edad);
+	localidad = prompt("Ingrese su localidad");
+	nombre = prompt("Ingrese su nombre");
+	apellido = prompt("Ingrese su apellido");
 
-	alert("Usted es " +nombre+ " y vive en la localidad de " +localidad);
+	alert("usted es "+nombre+ " " +apellido+ "tiene " +edad+ " años y vive en "+localidad);
 }

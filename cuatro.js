@@ -2,34 +2,54 @@ function mostrar()
 {
 	var numeroUno;
 	var numeroDos;
-	var resta;
-	var suma;
-	
-	numeroUno = prompt("Ingrese el primer numero");
-	numeroUno = parseInt(numeroUno);
-	numeroDos = prompt("Ingrese el segundo numero");
-	numeroDos = parseInt(numeroDos);
+	var numeroTres;
+	var mayor;
+	var menor;
 
-	resta = numeroUno - numeroDos;
-	suma = numeroUno + numeroDos;
 
-	if(numeroUno==numeroDos)
+	numeroUno=prompt("Ingrese el primer numero:");
+	numeroUno=parseInt(numeroUno);
+
+	numeroDos=prompt("Ingrese el segundo numero:");
+	numeroDos=parseInt(numeroDos);
+
+	numeroTres=promt("Ingrese el tercer numero:");
+	numeroTres=parseInt(numeroTres);
+
+	if(numeroUno>numeroDos && numeroUno>numeroTres)
 	{
-		alert("Son iguales " +numeroUno+ " y " +numeroDos);
-	}
-	else if(numeroUno>numeroDos)
+		mayor=numeroUno;
+	}else
 	{
-		alert("El primero es mayor que el segundo " +resta);
-	}
-		else
+		if(numeroDos>numeroUno && numeroDos>numeroTres)
 		{
-			if(numeroUno<numeroDos)
-			{	
-				alert("El primero es menor que el segundo " +suma);
-			}
+			mayor=numeroDos;
 		}
-			if(suma>10)
-			{
-				alert("la suma es " +suma+ " y supera el 10");
-			}
+	
+		else
+		{	
+			mayor=numeroTres;
+		}
+	}				
+
+	//FIN DE ELSE
+	
+	if(numeroUno<numeroDos && numeroUno<numeroTres)
+	{
+		menor=numeroUno;
+	}
+else
+	{
+		if(numeroDos<numeroUno && numeroDos<numeroTres)
+		{
+			menor=numeroDos;
+		}
+	
+	else
+		{
+			menor=numeroTres;
+		}
+	}	
+	alert("El numero  mayor es: ");
+	alert("El numero menor es: ");
 }

@@ -1,98 +1,111 @@
 function mostrar()
 {
-	var letra;
-	var numero;
-	var respuesta;
-	var numerosPares;
-	var numerosImpares;
-	var cantidadDeCeros;
-	var cantidadPositivos;
-	var contadorPositivos;
-	var promedioNumerosPositivos;
-	var contadorNegativos;
-	var bandera;
-	var numeroMaximo;
-	var letraMaxmo;
-	var numeroMinimo;
-	var letraMinimo;
- 	bandera=0;
-	numerosPares=0;
-	numerosImpares=0;
-	cantidadDeCeros=0;
-	cantidadPositivos=0;
-	contadorPositivos=0;
-	contadorNegativos=0;
- 	respuesta=prompt("Ingrese si o no");
-	if(respuesta!="si"&&respuesta!="no")
+	var nombre;
+	var sexo;
+	var estadoCivil
+	var cantidad;
+	var importeTotal;
+	var repuesta;
+	var mayorCantidad;
+	var mayorCantidadNombre;
+	var banderaYaPaso;
+	var banderaSoltero;
+	var masGasto;
+	var menosGasto;
+	var masGastoSexo;
+	var menosGastoSexo;
+	var primerMujerImporte;
+	var primerMujerNombre;
+	var primerMujerBandera;
+	var cantidadViudos;
+	var acumuladorViudos;
+	var promedioTotal;
+
+	respuesta= "n";
+	banderaYaPaso = "no";
+	banderaSoltero = "no";
+	primerMujerBandera = 0;
+	acumuladorViudos = 0;
+	cantidadViudos = 0;
+	
+	while(respuesta != "n")
 	{
-		respuesta=prompt("Ingrese si o no");	
+	nombre = prompt("Ingrese nombre");
+	sexo = prompt("Ingrese sexo");
+	while(sexo != "f" && sexo != "m")
+	{
+		sexo = prompt("Ingrese sexo");
 	}
- 	while(respuesta!="no")
+	estadoCivil= prompt("Ingrese estadoCivil");
+	while(estadoCivil != "s" && estadoCivil != "c" && estadoCivil != "casado" && estadoCivil != "viuda")
 	{
-		letra=prompt("Ingrese una letra");
-		numero=prompt("Ingrese un numero por favor");
-		numero=parseInt(numero);
-		
-		if(numero<-100||numero>100)
+		estadoCivil= prompt("Ingrese estadoCivil");
+	}
+	cantidad= prompt("Ingrese cantidad");
+	while(cantidad < "0" && cantidad isNaN(cantidad))
+	{
+		cantidad= prompt("Ingrese cantidad");
+		cantidad=parseInt(cantidad);
+	}
+	importeTotal= prompt("Ingrese importeTotal");
+	while(importeTotal < "0" && importeTotal isNaN(importeTotal))
+	{
+		importeTotal= prompt("Ingrese importeTotal");
+		importeTotal=parseInt(importeTotal);
+	}
+	//ANALISIS
+
+	if(banderaYaPaso == "no")
+	{
+		banderaYaPaso = "si";
+		mayorCantidad = cantidad;
+		mayorCantidadNombre = nombre;
+	} else
+	{
+		if(cantidad > mayorCantidad)
 		{
-			numero=prompt("ERROR. Ingrese un numero por favor");
-			numero=parseInt(numero);
-		}
- 		
-		if(numero%2==0)
-		{
-			numerosPares++;
-		}
-		else
-		{
-			numerosImpares++;
-		}
-		
-		if(numero==0)
-		{
-			cantidadDeCeros++;
-		}
-		
-		if(numero>0)
-		{
-			cantidadPositivos++;
-			contadorPositivos=contadorPositivos+numero;
-		}
-		else if(numero<0)
-		{
-			contadorNegativos=contadorNegativos+numero;
-		}
-		if(bandera==0)
-		{
-			numeroMinimo=numero;
-			letraMinimo=letra;
-			numeroMaximo=numero;
-			letraMinimo=letra;
-			bandera++;
-		}
-		
-		if(numero<numeroMinimo)
-		{
-			numeroMinimo=numero;
-			letraMinimo=letra;
-		}
-		if(numero>numeroMaximo)
-		{
-			numeroMaximo=numero;
-			letraMaxmo=letra;
-		}
- 		respuesta=prompt("Ingrese si o no");
-		if(respuesta!="si"&&respuesta!="no")
-		{
-			respuesta=prompt("Ingrese si o no");	
+			mayorCantidad = cantidad;
+			mayorCantidadNombre = nombre;
 		}
 	}
-	promedioNumerosPositivos=contadorPositivos/cantidadPositivos;
-	document.write("<br> La cantidad de numeros pares es de: "+numerosPares);
-	document.write("<br> La cantidad de numeros impares es de: "+numerosImpares);
-	document.write("<br> La cantidad de ceros es de: "+cantidadDeCeros);
-	document.write("<br> El promedio de todos los numeros postivos es de: "+promedioNumerosPositivos);
-	document.write("<br> La suma de todos los numeros negativos es de: "+contadorNegativos);
-	document.wrtie("<br> El numero maximo es "+numeroMaximo+" y la letra es "+letraMaxmo);
-	document.write("<br> El numero minimo es "+numeroMinimo+" y la letra es "+letraMinimo);
+
+	if(estadoCivil=="soltero")
+	{
+		if(banderaSoltero == "no")
+		{
+			banderaSoltero == "si";
+			masGasto = importeTotal;
+			menosGasto = importeTotal;
+			masGastoSexo = sexo;
+			menosGastoSexo = sexo;
+
+		} else
+		{
+			if(importeTotal > masGasto)
+			{
+				masGasto = importeTotal;
+				masGastoSexo = sexo;
+			}
+			if(importeTotal < menosGasto)
+			{
+				menosGasto = importeTotal;
+				menosGastoSexo = sexo;
+			}
+		}
+	}
+	if(sexo == "f" && primerMujerBandera == 0)
+	{
+		primerMujerBandera = 1;
+		primerMujerNombre = nombre;
+		primerMujerImporte = importeTotal;
+	}
+	if(estadoCivil == "viudo")
+	{
+		cantidadViudos++;
+		acumuladorViudos = acumuladorViudos + importeTotal;
+	}
+
+	respuesta = prompt("Ingrese (n) para salir");
+	}
+	promedioTotal = cantidadViudos / acumuladorViudos;
 }
