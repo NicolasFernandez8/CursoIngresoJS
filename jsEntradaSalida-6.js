@@ -2,26 +2,24 @@
 transformarlos a enteros (parseInt) y Sumarlos.
 mostrar el resulto por medio de "ALERT"*/
 function sumar()
-{ 
+{
 	var numeroUno;
 	var numeroDos;
 	var resultado;
-	
-	numeroUno = document.getElementById('numeroUno').value;
-	numeroUno = parseInt(numeroUno);
+
+	numeroUno = document.getElementById('numeroUno').value; 
 
 	numeroDos = document.getElementById('numeroDos').value;
-	numeroDos = parseInt(numeroDos);
 
-	resultado = numeroUno + numeroDos;
+	numeroUno = parseInt(numeroUno);
 
-	alert("Resultado: "+resultado);
+	numeroDos = parseInt(numeroDos); 
 
+	resultado = parseInt(resultado);
 
+	resultado = (numeroUno + numeroDos);
 
-
-
-
+	alert("El resultado es: " +resultado);
 
 }
 
