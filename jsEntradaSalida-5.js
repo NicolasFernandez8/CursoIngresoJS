@@ -3,12 +3,7 @@ ej.: "Usted se llama José y tiene 66 años" 	*/
 function mostrar()
 {	
 	var nombre;
-	
 	var edad;
-
-	nombre = prompt("Ingrese su nombre porfavor");
-
-	edad = prompt("Ingrese su edad porfavor");
 
 	nombre = document.getElementById('elNombre').value;
 
@@ -16,7 +11,6 @@ function mostrar()
 
 	edad = parseInt(edad);
 
-	alert("Su nombre es: " +nombre+ " y su edad es: "+edad);
-	
+	alert("Usted se llama " +nombre+ " y tiene " +edad+ " años");	
 }
 
