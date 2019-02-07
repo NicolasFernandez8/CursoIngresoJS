@@ -16,7 +16,7 @@ function mostrarAumento()
 
 	resultado = (sueldo + importeConAumento);
 
-	document.getElementById('resultado').value = "El aumento es: " + resultado ;
+	document.getElementById('resultado').value = "El Aumento es de: " + resultado;
 
 	resultado = parseInt(resultado);	
 	

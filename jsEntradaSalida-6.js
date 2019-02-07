@@ -7,17 +7,19 @@ function sumar()
 	var numeroDos;
 	var resultado;
 
-	numeroUno = document.getElementById('numeroUno').value;
-
-	numeroUno = parseInt(numeroUno);
+	numeroUno = document.getElementById('numeroUno').value; 
 
 	numeroDos = document.getElementById('numeroDos').value;
 
-	numeroDos = parseInt(numeroDos);
+	numeroUno = parseInt(numeroUno);
 
-	resultado = (numeroUno + numeroDos)
+	numeroDos = parseInt(numeroDos); 
 
-	alert("El resultado es: "+resultado);
+	resultado = parseInt(resultado);
+
+	resultado = (numeroUno + numeroDos);
+
+	alert("El resultado es: " +resultado);
 
 }
 
