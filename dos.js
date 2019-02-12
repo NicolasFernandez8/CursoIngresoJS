@@ -1,15 +1,28 @@
 function mostrar()
 {
-	var edad;
-	var localidad;
+	// Opcion 1 por ID
+
 	var nombre;
-	var apellido;
+	var localidad;
 
-	edad = prompt("Ingrese su edad");
-	edad = parseInt(edad);
-	localidad = prompt("Ingrese su localidad");
-	nombre = prompt("Ingrese su nombre");
-	apellido = prompt("Ingrese su apellido");
+	nombre = document.getElementById('elNombre').value;
 
-	alert("usted es "+nombre+ " " +apellido+ "tiene " +edad+ " años y vive en "+localidad);
+	localidad = document.getElementById('laLocalidad').value;
+
+	alert("usted es " +nombre+ " y vive en la localidad de " +localidad);
+
+	// Opcion 2 por PROMPT
+	
+	/*
+
+	var nombre;
+	var localidad;
+
+	nombre = prompt("Ingrese su nombre porfavor");
+
+	localidad = prompt("Ingrese su localidad porfavor");
+  
+  	alert("usted es " +nombre+ " y vive en la localidad de " +localidad);
+
+  	*/
 }
