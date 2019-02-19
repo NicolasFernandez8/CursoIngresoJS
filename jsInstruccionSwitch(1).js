@@ -1,34 +1,40 @@
 function mostrar()
-{
-	var mesDelAño = document.getElementById('mes').value;
+{  
+	var mesDelAño; 
+
+	var mensaje;
+
+	mesDelAño = document.getElementById('mes').value;
 
 	console.log(mesDelAño);
-	
-	switch (mesDelAño)
+
+	switch(mesDelAño)
 	{
-	 
-	 case"Enero":
-	    
-	     alert("Que comiencen bien el año!!!.");
-	    
-	     break;
-	 
-	 case"Marzo":
+		case"Enero":
 
-	     alert("A clases!!!.");
+			mensaje = "que comiences bien el año!!!.";
 
-	     break;
+			break;
+		
+		case"Marzo":
 
-	 case"Julio":
+			mensaje = "a clases!!!";
 
-	     alert("Se las vacaciones");
+			break;
 
-	     break;
+		case"Julio":
 
-	 case"Diciembre":  
+			mensaje = "se vienen las vacaciones!!!.";
 
-	     alert("Felices fiestas!!!.");
+			break;
 
-	     break;       
+		case"Diciembre":
+
+			mensaje = "Felices fiesta!!!.";
+
+			break;
 	}
+
+	alert(mensaje);
+
 }

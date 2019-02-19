@@ -1,39 +1,53 @@
 function mostrar()
 {
-	var mesDelAño = document.getElementById('mes').value;
-    
-    alert(mesDelAño);
+  
+	var mesDelAño;
 
-    switch(mesDelAño)
-    {
-    
-     case"Julio":
-          alert("Este mes tiene 30 o mas dias.");
-          break;
-     
-     case"Agosto":
-          alert("Este mes tiene 30 o mas dias.");
-    	  break;
-    	
-     case"Febrero":
-    	  alert("Este mes no tiene mas de 29 dias.");
-    	  break;
-    	
-     case"Marzo":
-    	  alert("Este mes tiene 30 o mas dias.");
-    	  break;
-    	
-     case"Abril":
-          alert("Este mes tiene 30 o mas dias.");
-          break;
+	var mensaje; 
 
-     case"Mayo":
-          alert("Este mes tiene 30 o mas dias.");
-          break;
-    	
-     case"Junio":
+	mesDelAño = document.getElementById('mes').value;
 
-    	  alert("Este mes no tiene mas de 29 dias.");
-    	  break;
-    }
-} 
+	console.log(mesDelAño);
+
+	switch(mesDelAño)
+	{
+		
+		case"Febrero":
+			
+			mensaje = "Este mes no tiene más de 29 días.";
+
+			break;
+
+
+		case"Enero":
+
+		case"Marzo":
+		
+		case"Abril":
+		
+		case"Mayo":
+		
+		case"Junio":
+		
+		case"Julio":
+		
+		case"Agosto":
+		
+		case"Septiembre":
+		
+		case"Octubre":
+		
+		case"Noviembre":
+		
+		case"Diciembre":
+
+			mensaje = "Este mes tiene 30 o más días";
+
+			break;
+		
+	}
+
+	alert(mensaje);
+
+
+}//FIN DE LA FUNCIÓN

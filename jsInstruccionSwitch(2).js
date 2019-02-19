@@ -1,67 +1,53 @@
 function mostrar()
-{
-    var mesDelAño = document.getElementById('mes').value;
+{ 
+	var mesDelAño;
 
-    alert (mesDelAño);
+	var mensaje;
 
-    switch(mesDelAño)
-    {
-     case"Julio":
+	mesDelAño = document.getElementById('mes').value;
 
-     case"Agosto":
-      
-        alert("Falta para el invierno");
+	console.log(mesDelAño);
 
-        break;
+	switch(mesDelAño)
+	{
+		case"Diciembre":
 
-     case"Febrero":
+		case"Enero":
 
-     case"Marzo":
-     
-     case"Abril":
-     
-     case"Mayo":
-     
-     case"Junio":
-     
-         alert("Falta para el invierno");
+		case"Febrero":
 
-         break;
+			mensaje = "Abrigate que hace frio.";
 
-     default:
+			break;
+		
+		case"Marzo":
 
-         alert("Ya pasamos el frio, ahora hace calor");
-         break; 
-    }
-}
+		case"Abril":
+		
+		case"Mayo":
+		
+		case"Junio":
+		
+		case"Julio":
+		
+		case"Agosto":
 
+			mensaje = "Ya pasamos el frio, ahora calor!!!.";
 
+			break;
+		
+		case"Septiembre":
+		
+		case"Octubre":
+		
+		case"Noviembre":
 
+			mensaje = "Falta para el invierno."; 
 
+			break;
 
+	}	
 
+	alert(mensaje);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+}//FIN DE LA FUNCIÓN
