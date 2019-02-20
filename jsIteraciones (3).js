@@ -1,23 +1,15 @@
 function mostrar()
 {
-	var clave ;
-	
-	var clave = prompt("ingrese el número clave.");
+	var clave 
 
-	while(clave != "utn750")
-	
-	
+	clave = prompt("ingrese el número clave.");
+
+	while(clave != "utn750")// Buscamos que la clave sea == a utn750 por eso ponemos lo contrario en el While.
 	{
-	
-	
-		clave = prompt(" Clave incorrecta. Reingrese el numero de clave");
-	
+		console.log(clave);
 
+		clave = utn750;
 	}
-	
 
-	
-	alert("Clave valida");
 
-		
 }//FIN DE LA FUNCIÓN
