@@ -1,55 +1,94 @@
+/*
+- Ingresar 4 importes de estos mostrar el mayor
+- Despues decir el total
+- Si supera los $100 decuento del 10%
+- Si supera los $50 decuento del 5%
+- En el caso de ser menos de $50 hay que sumarle un 15%
+*/
+
 function mostrar()
 {
-	var numeroUno;
-	var numeroDos;
-	var numeroTres;
-	var mayor;
-	var menor;
-
-
-	numeroUno=prompt("Ingrese el primer numero:");
-	numeroUno=parseInt(numeroUno);
-
-	numeroDos=prompt("Ingrese el segundo numero:");
-	numeroDos=parseInt(numeroDos);
-
-	numeroTres=promt("Ingrese el tercer numero:");
-	numeroTres=parseInt(numeroTres);
-
-	if(numeroUno>numeroDos && numeroUno>numeroTres)
-	{
-		mayor=numeroUno;
-	}else
-	{
-		if(numeroDos>numeroUno && numeroDos>numeroTres)
-		{
-			mayor=numeroDos;
-		}
+	//Importes
+	var importeUno;
+	var importeDos;
+	var importeTres;
+	var importeCuatro;
+	var importeTotal;
+	var importeMayor;
 	
-		else
-		{	
-			mayor=numeroTres;
-		}
-	}				
+	//Variedad
+	var descuento;
+	var aumento;
+	var suma;
 
-	//FIN DE ELSE
-	
-	if(numeroUno<numeroDos && numeroUno<numeroTres)
+	//Prompt
+	importeUno = prompt("Ingrese el primer numero");
+	importeDos = prompt("Ingrese el segundo numero");
+	importeTres = prompt("Ingrese el tercero numero");
+	importeCuatro = prompt("Ingrese el cuarto numero");
+
+	//ParseInt
+	importeUno = parseInt(importeUno);
+	importeDos = parseInt(importeDos);
+	importeTres = parseInt(importeTres);
+	importeCuatro = parseInt(importeCuatro);
+
+	if (importeUno > importeDos &&  importeUno > importeTres && importeUno > importeCuatro)
 	{
-		menor=numeroUno;
+		importeMayor = importeUno;
 	}
-else
-	{
-		if(numeroDos<numeroUno && numeroDos<numeroTres)
-		{
-			menor=numeroDos;
-		}
-	
 	else
+	{
+		if (importeDos > importeUno &&  importeDos > importeTres && importeDos > importeCuatro)
 		{
-			menor=numeroTres;
+			importeMayor = importeDos;
 		}
-	}	
-	alert("El numero  mayor es: ");
-	alert("El numero menor es: ");
+		else
+		{
+			if (importeTres > importeUno &&  importeTres > importeDos && importeTres > importeCuatro)
+			{
+				importeMayor = importeTres;
+			}
+			else
+			{
+				if (importeCuatro > importeUno &&  importeCuatro > importeDos && importeCuatro > importeTres) 
+				{
+					importeMayor = importeCuatro;
+				}
+			
+			}//if (importeTres > importeUno &&  importeTres > importeDos && importeTres > importeCuatro)	
+		 
+		}//if (importeDos > importeUno &&  importeDos > importeTres && importeDos > importeCuatro)
+
+	}//if (importeUno > importeDos &&  importeUno > importeTres && importeUno > importeCuatro)
+
+	suma = (importeUno + importeDos + importeTres + importeCuatro);
+
+	if (suma > 99)
+	{
+		descuento = 10;
+	}
+	else
+	{
+		if(suma > 49)
+		{
+			decuento = 5;
+		}
+		else
+		{
+			aumento = (suma * 15 / 100);
+
+			suma = (suma + aumento);
+
+			decuento = 0;
+		
+		}//if(suma > 49)
+
+	}//if (suma > 99)
+
+	importeTotal = (suma * decuento / 100);
+
+	importeTotal = (suma - decuento);
+
+	alert("El importe de mayor valor es: $" +importeMayor+ " y el precio final es de: $" +importeTotal);
 }
