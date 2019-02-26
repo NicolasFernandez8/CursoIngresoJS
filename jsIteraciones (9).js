@@ -1,45 +1,50 @@
 function mostrar()
 {
+	var contador;
+	var numero;
+	var numeroMaximo;
+	var numeroMinimo;
+	var respuesta;
+	var bandera;
 
-	var contador=0;
-	// declarar variables
-	var mayor;
-	var menor;
-	var respuesta='si';
-	//var bandera = 0;
-	
-	while(respuesta!='no')	
+	respuesta = true;
+	contador = 0;
+	bandera = true;
+
+	while(respuesta	== true)
 	{
-		contador++;
-		numero = prompt("Ingrese numero #"+contador);
+		numero = prompt("ingresar numero " +contador+ ": ");
+
 		numero = parseInt(numero);
 
-		if (contador== 1)		
+		contador++;
+
+		respuesta = confirm("Quiere ingresar otro numero");
+
+		if (bandera == true)
 		{
-			menor = numero;
-			mayor = numero;
-			//bandera = 1;
-		}
-		else
-		{
-			if (numero < menor)		
-			{		
-				menor = numero;		
-			}
-			
-			if (numero < mayor)		
-			{		
-				mayor = numero;		
-			}
+			numeroMaximo = numero;
+
+			numeroMinimo = numero;
+
+			bandera = false;
 		}
 
+		else 
+		{
+			if (numero > numeroMaximo)
+			{
+				numeroMaximo = numero;
+			}
 		
-			
-		respuesta = prompt("¿Desea continuar?");
+			if (numero < numeroMinimo)
+			{
+				numeroMinimo = numero;	
+			}
+		}		
 	}
+	
+	document.getElementById('maximo').value = numeroMaximo;
 
-	document.getElementById('maximo').value = mayor;
-	document.getElementById('minimo').value = menor;
-
-
-}//FIN DE LA FUNCIÓN
+	document.getElementById('minimo').value = numeroMinimo;
+}

@@ -1,45 +1,37 @@
 function mostrar()
 {
-
-	var contador=0;
-	var positivo=0;
-	var negativo=1;
+	var contador;
+	var positivo;
+	var negativo;
 	var numero;
-	
-	var respuesta='si';
+	var respuesta;
 
-	contador=0;
-	positivo=0;
-	respuesta ="si";
-	
-	while(respuesta != "n")
-	
+	contador = 0;
+	positivo = 0;
+	negativo = 1;
+	respuesta = "si";
+
+	while(respuesta == "si")
 	{
-		
-		numero = prompt("Ingrese numero #" +contador);
+		numero = prompt("ingresar numero " +contador+ ": ");
 
 		numero = parseInt(numero);
+		
+		if (numero > 0)
+		{
+			positivo = numero + positivo;
+		}
+		
+		else
+		{
+			negativo = numero * negativo;
+		}
+
+		contador++;
+
+		respuesta = prompt("Quiere ingresar otro numero si/no");
 	}
-	
-	if  (numero >0)
-	
-	{
 
-		positivo = positivo + numero;
-
-	}
-	
-	else if (numero >0)
-	{
-	
-		negativo = negativo * numero;
-
-	
-	}
-	
-	respuesta = prompt("Desea seguir ingresado numero");
-
-document.getElementById('suma').value="Este valor es positivo" +positivo;
-document.getElementById('producto').value="Este valor es negativo" +negativo;
-
-}//FIN DE LA FUNCIÓN
+document.getElementById('suma').value = positivo;
+document.getElementById('producto').value = negativo;
+}

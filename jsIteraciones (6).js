@@ -1,35 +1,27 @@
 function mostrar()
 {
+	var contador;
+	var acumulador;
+	var mumeroRecibido;
 
-	var contador=0;
-	var acumulador=0;
-	var respuesta ="si";
-	var numero;
-	
-	contador=0;
-	acumulador=0;
-	respuesta ="si";
-	
-	while(respuesta != "n")
-	
+	contador = 0;
+	acumulador = 0;
+	numeroRecibido = 0;
+
+	while(contador < 5)
 	{
-		contador = contador +1;
+		numeroRecibido = prompt("Dame el numero " + contador + ": ");
 
-		numero = prompt("Ingrese numero #" +contador);
+		numeroRecibido = parseInt(numeroRecibido);
 
-		numero = parseInt(numero);
+		acumulador = acumulador + mumeroRecibido;
 
-		acumulador = acumulador + numero;
+		contador++;
 
-		respuesta = prompt("Desea seguir ingresado numero");
-
+		respuesta = "si";
 	}
 
-	promedio = acumulador/contador;
-
-
-
-document.getElementById('suma').value= "la suma es" +acumulador;
-document.getElementById('promedio').value= "el promedio es" +promedio;
-
-}//FIN DE LA FUNCIÓN
+	document.getElementById('suma').value = acumulador;
+	
+	document.getElementById('promedio').value = acumulador / 5;
+}
