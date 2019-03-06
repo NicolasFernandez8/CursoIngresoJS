@@ -1,79 +1,78 @@
 function mostrar()
 {
-	//Variales
-	var nota;
+	//Variable
+	var altura;
 	var sexo;
+	var alturaMasBaja;
+	var sexoMasBajo;
 	var promedioTotal;
-	var notaMasBaja;
-	var sexoNotaBaja;
 	var mensajeUno;
-	var mensajeDos;
+	var mensajeDos
 	var mensajeTres;
 
 	//Variedad
-	var acumuladorNota = 0;
 	var bandera = false;
 	var respuesta = true;
+	var acumuladorAlturas = 0;
 
-	//Contador
-	contador = 0;
-	contadorVaroNotaMayor = 0; 
+	//Contadores
+	var contador = 0;
+	var contadorMujeresMayor = 0;
 
-
-	while (contador < 5)
+	while (respuesta == true)
 	{
 		contador++;
 
-		nota = prompt("Ingrese la nota (entre 0 y 10) " +contador+ ": ");
+		altura = prompt("Ingrese una alutra en centimetros (entre 0 y 250) " +contador+ ": ");
 
-		nota = parseInt(nota);
+		altura = parseInt(altura);
 
-		while (isNaN(nota) == true || nota < 0 || nota > 10)
+		while(isNaN(altura) == true || altura < 0 || altura > 250)
 		{
-			nota = prompt("La nota ingresada es incorrecta, ingrese otra nota nuevamente entre 0 y 10");
+			altura = prompt("La altura ingresada es incorrecta, ingresela nuevamente entre 0 y 250");
 
-			nota = parseInt(nota);	
+			altura = parseInt(altura);
 		}
 
-		sexo = prompt("Ingrese el sexo f/m");
+		sexo = prompt("Ingrese un sexo f/m")
 
 		while (isNaN(sexo) == false || sexo != "f" && sexo != "m")
 		{
-			sexo = prompt("El sexo ingresado es incorrecto, ingrese otra nuevamente f/m");
+			sexo = prompt("El sexo ingresado es incorrecto, ingreselo nuevamente entre estas 2 opciones f o m");
+		}
+
+		if (sexo == "f" && altura > 190)
+		{
+			contadorMujeresMayor++;
+
+			mensajeDos = "La cantidad de mujeres que su altura supere los 190 centimetros es: " +contadorMujeresMayor;
 		}
 
 		if (bandera == false)
 		{
-			notaMasBaja = nota;
+			alturaMasBaja = altura;
 
-			sexoNotaBaja = sexo;
+			sexoMasBajo = sexo;
 
 			bandera = true;
 		}
 
-		if (nota < notaMasBaja)
+		if (altura < alturaMasBaja)
 		{
-			notaMasBaja = nota;
+			alturaMasBaja = altura;
 
-			sexoNotaBaja = sexo;
+			sexoMasBajo = sexo;
 
-			mensajeUno = "La nota mas baja es: " +notaMasBaja+ " y el sexo de esa persona es: " +sexoNotaBaja;
+			mensajeUno = "La altura más baja es: " +alturaMasBaja+ " y el sexo de esa persona es: " +sexoMasBajo; 
 		}
 
-		if (sexo == "m" && nota > 5)
-		{
-			contadorVaroNotaMayor++;
+		acumuladorAlturas = (acumuladorAlturas + altura);
 
-			mensajeDos = "La cantidad de varones que su no haya sido mayor o igual a seis es: " +contadorVaroNotaMayor;
-		}
+		promedioTotal = (acumuladorAlturas / contador);
 
-		acumuladorNota = (acumuladorNota + nota);
+		mensajeTres = "El promedio de las alturas totales es: " +promedioTotal;
 
-		promedioTotal = (acumuladorNota / contador);
-
-		mensajeTres = "El promedioTotal es de: " +promedioTotal;
-
-		respuesta = confirm("¿Quiere ingresar otra nota?");
+		respuesta = confirm("¿Quiere ingresar otra altura?");
 	}
 
 	alert(mensajeUno);
@@ -83,9 +82,8 @@ function mostrar()
 
 /*
 Bienvenidos. 
-Realizar el algoritmo que permita el ingreso por prompt de las notas (validar entre 0 y 10) , 
-el sexo (validar el sexo “f” o “m”) de 5 alumnos, informar por alert: 
-a) El promedio de las notas totales. 
-b) La nota más baja y el sexo de esa persona. 
-c) La cantidad de varones que su nota haya sido mayor o igual a 6.
+Realizar el algoritmo que permita el ingreso por prompt de las alturas en centimetros(validar entre 0 y 250) , el sexo. (validar el sexo “f” o “m”) de 5 jugadores de basquet, informar por alert: 
+a) El promedio de las alturas totales. 
+b) La altura más baja y el sexo de esa persona. 
+c) La cantidad de mujeres que su altura supere los 190 centimetros.
 */

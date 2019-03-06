@@ -4,11 +4,11 @@ function mostrar()
 	var descuento;
 	var precioDescuento;
 
-	precio = prompt("Ingrese un precio porfavor");
+	precio = prompt("Ingrese un precio");
 
 	precio = parseInt(precio);
 
-	descuento = prompt("Ingresar descuento");
+	descuento = prompt("Ingrese un descuento");
 
 	descuento = parseInt(descuento);
 
@@ -16,10 +16,7 @@ function mostrar()
 
 	precioDescuento = (precio - descuento);
 
-	document.getElementById('elPrecioFinal').value = precioDescuento;
-}
+	document.getElementById('elPrecioFinal').value = precioDescuento; 
 
-/*
-Bienvenidos. 
-Pedir por prompt el precio y el porcentaje de descuento, mostrar el precio final con descuento por id.
-*/
+
+}

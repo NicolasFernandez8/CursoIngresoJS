@@ -2,51 +2,52 @@ function mostrar()
 {
 	var numeroUno;
 	var numeroDos;
-	var dividir;
+	var resta;
 	var suma;
 	var mensaje;
 
-	numeroUno = prompt("Ingrese el 1° numero");
+	numeroUno = prompt("Ingrese el primer numero");
 
 	numeroUno = parseInt(numeroUno);
 
-	numeroDos = prompt("Ingrese el 2° numero");
+	numeroDos = prompt("Ingrese el segundo numero");
 
 	numeroDos = parseInt(numeroDos);
 
+
 	if (numeroUno == numeroDos)
 	{
-		mensaje = numeroUno+ "" +numeroDos; 
+		mensaje = numeroUno+ "" +numeroDos;
 	}
-	
-	if (numeroUno > numeroDos)
+
+	else if (numeroUno > numeroDos)
 	{
-		dividir = (numeroUno / numeroDos);
-
-		mensaje = "El resultado es: " +dividir;
+		resta = (numeroUno - numeroDos);
+		
+		mensaje = "El resultado de la resta es: " +resta;
 	}
 
-	else
+	else 
 	{
 		suma = (numeroUno + numeroDos);
 
-		mensaje = "El resultado es: " +suma;
-	
-		if (suma < 50)
-		{		
-			mensaje = "La suma es: " +suma+ " y es menor a 50";
-		}	
+		mensaje = "El resultado de la suma es: " +suma;
 	}
-	
+
+	if (resta > 10)
+	{
+		mensaje = mensaje + " y supero el 10";
+	}
+
 	alert(mensaje);
 }
-
+ 
 /*
-Bienvenidos. 
-(IF)Pedir dos números y mostrar el resultado: 
-Si son iguales los muestro concatenados.
-Si el primero es mayor, los divido, 
+ Bienvenidos (IF). 
+Pedir dos números y mostrar el resultado: 
+Si son iguales los muestro concatenados. 
+Si el primero es mayor, los resto, 
 de lo contrario los sumo. 
-Si la suma es menor a 50 ,además de mostrar el resultado, muestro el mensaje 
-"la suma es xxx y es menor a 50".
+Si la resta es mayor a 10 ,además de mostrar el resultado, muestro el mensaje 
+"la resta es xxx y supero el 10".
 */

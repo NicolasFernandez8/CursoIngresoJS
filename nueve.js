@@ -1,120 +1,117 @@
 function mostrar()
 {
 	//Variables
-	var animal;
-	var peso;
+	var nombrePais;
+	var habitantes;
 	var temperatura;
-	var animalMasPesado;
-	var tempaAnimalPesado;
-	var pesoMaximoBajoCero = 0;
-	var pesoMinimoBajoCero = 0;
+	var nombrePaisMenosH;
+	var menosHambitantes;
+	var paisTemperaturaMinima;
+	var temperaturaMinima;
 
 	//Variedad
+	var repuesta = true;
 	var bandera = false;
-	var respuesta = true;
-	var acumuladorPeso = 0;
-
-	//Contador
+	var acumuladorHabitantes = 0;
+	
+	//Contadores
 	var contador = 0;
-	var contadorAnima0grados = 0;
-	var contadorPares = 0;
+	var contadorTempPares = 0;
+	var contadorPaisesMas40 = 0;
 
-
-	while (respuesta == true)
+	while (repuesta == true)
 	{
 		contador++;
 
-		animal = prompt("Ingrese un animal");
+		nombrePais = prompt("Ingrese el nombre del pais");
 
-		while (isNaN(animal) == false)
+		while (isNaN(nombrePais) == false)
 		{
-			animal = prompt("El animal ingresado es incorrecto, ingreselo nuevamente");
+			nombrePais = prompt("El nombre del pais ingresado es incorrecto, ingreselo nuevamente");
 		}
 
-		peso = prompt("Ingrese un peso (entre 1 y 1000) " +contador+ ": ");
+		habitantes = prompt("Ingrese la cantidad de habitantes que tiene (entre 1 y 7000) " +contador+ ": ");
 
-		peso = parseInt(peso);
+		habitantes = parseInt(habitantes);
 
-		while (isNaN(peso) == true || peso < 1 || peso > 1000)
+		while (isNaN(habitantes) == true || habitantes < 1 || habitantes > 7000)
 		{
-			peso = prompt("El peso ingresado es incorrecto, ingrese otro nuevamente entre 1 y 1000");
-
-			peso = parseInt(peso);
+			habitantes = prompt("La cantidad de habitantes ingresada es incorrecta, ingresela nuevamente entre 1 y 7000");
+		
+			habitantes = parseInt(habitantes);
 		}
 
-		temperatura = prompt("Ingrese un temperatura (entre 30 y -30) " +contador+ ": ");
+		temperatura = prompt("Ingresela temperatura (entre 50 y -50)");
 
 		temperatura = parseInt(temperatura);
 
-		while (isNaN(temperatura) == true || temperatura < -30 || temperatura > 30)
+		while (isNaN(temperatura) == true || temperatura < -50 || temperatura > 50)
 		{
-			temperatura = prompt("El temperatura ingresado es incorrecto, ingrese otro nuevamente entre -30 y 30");
-
+			temperatura = prompt("La temperatura ingresada es incorrecta, ingreselo nuevamente (entre 50 y -50)");
+		
 			temperatura = parseInt(temperatura);
 		}
 
 		if (bandera == false)
 		{
-			animalMasPesado = animal;
+			nombrePaisMenosH = nombrePais;
 
-			tempaAnimalPesado = temperatura;
+			menosHambitantes = habitantes;
 
-			pesoMaximoBajoCero = peso;
+			temperaturaMinima = temperatura;
 
-			pesoMinimoBajoCero = peso;
+			paisTemperaturaMinima = nombrePais;
 
-			bandera == true;
+			bandera = true;
 		}
 
-		if (peso > animalMasPesado)
+		if (habitantes < menosHambitantes)
 		{
-			animalMasPesado = animal;
+			menosHambitantes = habitantes;
 
-			tempaAnimalPesado = temperatura;	
-		}
-
-	 	else if (temperatura < 0)
-		{
-			if(peso > pesoMaximoBajoCero)
-			{
-				pesoMaximoBajoCero = peso;
-			}
-			else
-			{
-				pesoMinimoBajoCero = peso;
-			}
+			nombrePaisMenosH = nombrePais;	
 		}
 		
-		if (temperatura < 0)
+		if (temperatura < temperaturaMinima) 
 		{
-			contadorAnima0grados++;
+			temperaturaMinima = temperatura;
+
+			paisTemperaturaMinima = nombrePais;
+		}
+
+		else if (temperatura > 40)
+		{
+			contadorPaisesMas40++;
 		}
 
 		if (temperatura % 2 == 0)
 		{
-			contadorPares++;
+			contadorTempPares++;
 		}
 
-		acumuladorPeso = (acumuladorPeso + peso)
+		acumuladorHabitantes = (acumuladorHabitantes + habitantes);
 
-		promedioTotal = (acumuladorPeso / contador);
+		promedioHabitantes = (acumuladorHabitantes / contador);
 
-		respuesta = confirm("¿Quieres ingresar otro peso?");
+		repuesta = confirm("¿Quiere ingresar otra cantidad de habitantes?");
 	}
 
-	document.write("<br> La cantidad de temperaturas pares es: " +contadorPares);
-	document.write("<br> La cantidad de animales que viven a menos de 0 grados son: " +contadorAnima0grados);
-	document.write("<br> El promedio del peso de todos los animales es: " +promedioTotal);
-	document.write("<br> El peso máximo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMaximoBajoCero);
-	document.write("<br> El peso minimo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMinimoBajoCero);
+	document.write("<br> La cantidad de temperaturas pares es: " +contadorTempPares);
+	document.write("<br> El nombre del pais con menos habitantes es: " +nombrePaisMenosH);
+	document.write("<br> la cantidad de paises que superan los 40 grados es: " +contadorPaisesMas40);
+	document.write("<br> el promedio de habitantes entre los paises ingresados es: " +promedioHabitantes);
+	document.write("<br> la temperatura minima ingresada es: " +temperaturaMinima+ " y nombre del pais que registro esa temperatura es: " +paisTemperaturaMinima);
 }
+
 /*
 Bienvenidos. 
-Realizar el algoritmo que permita ingresar el nombre de un animal del zoológico, el peso el cual debe ser entre 1 y 1000 y 
-la temperatura del hábitat (entre -30 y 30) hasta que el usuario quiera e informar al terminar el ingreso por document.write:
+Realizar el algoritmo que permita ingresar el nombre de un pais, cantidad de habitantes en millones entre 1 y 7000 
+(validar), 
+la temperaruta minima que se registra en su territorio(entre -50 y 50) 
+hasta que el usuario quiera e informar al terminar el ingreso por document.write: 
 a) La cantidad de temperaturas pares. 
-b) El nombre y temperatura del animal más pesado 
-c) La cantidad de animales que viven a menos de 0 grados. 
-d) El promedio del peso de todos los animales.	
-f) El peso máximo y el mínimo de todos los animales cuyas temperaturas sean bajo cero.
+b) El nombre del pais con menos habitantes 
+c) la cantidad de paises que superan los 40 grados. 
+d) el promedio de habitantes entre los paises ingresados	
+f) la temperatura minima ingresada, y nombre del pais que registro esa temperatura.
 */

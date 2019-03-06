@@ -1,24 +1,13 @@
 function mostrar()
 {
-	var ancho;
-	var largo;
+	var medida;
 	var perimetro;
 
-	largo = prompt("Ingrese largo");
+	medida = prompt("Ingrese las medida, de un triangulo equilatero");
 
-	largo = parseInt(largo);
+	medida = parseInt(medida);
 
-	ancho = prompt("Ingrese ancho");
+	perimetro = (3 * (medida));
 
-	ancho = parseInt(ancho);
-
-	perímetro = (2 * (ancho + largo));
-
-	alert("El perimetro es: " +perimetro);
+	alert("El perimetro es : " +perimetro);
 }
-
-/*
-Bienvenidos. 
-Realizar el algoritmo que pida el ancho y el largo de 
-un rectángulo por prompt y que muestre el perímetro por alert.
-*/
