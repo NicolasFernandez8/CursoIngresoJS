@@ -1,94 +1,52 @@
-/*
-- Ingresar 4 importes de estos mostrar el mayor
-- Despues decir el total
-- Si supera los $100 decuento del 10%
-- Si supera los $50 decuento del 5%
-- En el caso de ser menos de $50 hay que sumarle un 15%
-*/
-
 function mostrar()
 {
-	//Importes
-	var importeUno;
-	var importeDos;
-	var importeTres;
-	var importeCuatro;
-	var importeTotal;
-	var importeMayor;
-	
-	//Variedad
-	var descuento;
-	var aumento;
+	var numeroUno;
+	var numeroDos;
+	var resta;
 	var suma;
+	var mensaje;
 
-	//Prompt
-	importeUno = prompt("Ingrese el primer numero");
-	importeDos = prompt("Ingrese el segundo numero");
-	importeTres = prompt("Ingrese el tercero numero");
-	importeCuatro = prompt("Ingrese el cuarto numero");
+	numeroUno = prompt("Ingrese el primer numero porfavor")
 
-	//ParseInt
-	importeUno = parseInt(importeUno);
-	importeDos = parseInt(importeDos);
-	importeTres = parseInt(importeTres);
-	importeCuatro = parseInt(importeCuatro);
+	numeroUno = parseInt(numeroUno);	
 
-	if (importeUno > importeDos &&  importeUno > importeTres && importeUno > importeCuatro)
+	numeroDos = prompt("Ingrese el segundo numero porfavor")
+
+	numeroDos = parseInt(numeroDos);
+
+	if (numeroUno == numeroDos)
 	{
-		importeMayor = importeUno;
+		mensaje = numeroUno+ "" +numeroDos;
 	}
+	
+	else if  (numeroUno > numeroDos)
+	{
+		resta = (numeroUno - numeroDos);
+
+		mensaje = "El resultado es: " +resta;
+	}
+	
 	else
 	{
-		if (importeDos > importeUno &&  importeDos > importeTres && importeDos > importeCuatro)
+		suma = (numeroUno + numeroDos);
+
+		mensaje = "El resultado es: " +suma;
+
+		if (suma > 10)
 		{
-			importeMayor = importeDos;
-		}
-		else
-		{
-			if (importeTres > importeUno &&  importeTres > importeDos && importeTres > importeCuatro)
-			{
-				importeMayor = importeTres;
-			}
-			else
-			{
-				if (importeCuatro > importeUno &&  importeCuatro > importeDos && importeCuatro > importeTres) 
-				{
-					importeMayor = importeCuatro;
-				}
-			
-			}//if (importeTres > importeUno &&  importeTres > importeDos && importeTres > importeCuatro)	
-		 
-		}//if (importeDos > importeUno &&  importeDos > importeTres && importeDos > importeCuatro)
-
-	}//if (importeUno > importeDos &&  importeUno > importeTres && importeUno > importeCuatro)
-
-	suma = (importeUno + importeDos + importeTres + importeCuatro);
-
-	if (suma > 99)
-	{
-		descuento = 10;
+			mensaje = mensaje + " y supera el 10";
+		}	
 	}
-	else
-	{
-		if(suma > 49)
-		{
-			decuento = 5;
-		}
-		else
-		{
-			aumento = (suma * 15 / 100);
 
-			suma = (suma + aumento);
-
-			decuento = 0;
-		
-		}//if(suma > 49)
-
-	}//if (suma > 99)
-
-	importeTotal = (suma * decuento / 100);
-
-	importeTotal = (suma - decuento);
-
-	alert("El importe de mayor valor es: $" +importeMayor+ " y el precio final es de: $" +importeTotal);
+	alert(mensaje);
 }
+
+/*
+Bienvenidos (IF). 
+Pedir dos números y mostrar el resultado: 
+Si son iguales los muestro concatenados.
+Si el primero es mayor, los resto, 
+de lo contrario los sumo. 
+Si la suma es mayor a 10 ,además de mostrar el resultado, muestro el mensaje 
+"la suma es xxx y supero el 10".
+*/

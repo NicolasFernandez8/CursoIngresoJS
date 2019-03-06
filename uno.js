@@ -1,25 +1,23 @@
 function mostrar()
 {
-	var nombreUno;
-	var nombreDos;
-	var edadUno;
-	var edadDos;
-	var suma;
+	var ancho;
+	var largo;
+	var perimetro;
 
-	nombreUno = prompt("Ingrese el primer nombre Porfavor");
+	ancho = prompt("Ingrese ancho porfavor");
 
-	nombreDos = prompt("Ingrese el segundo nombre Porfavor");
+	ancho = parseInt(ancho);
 
-	edadUno = prompt("Ingrese la primera edad Porfavor");
+	largo = prompt("Ingrese largo porfavor");
 
-	edadUno = parseInt(edadUno);
+	largo = parseInt(largo);
 
-	edadDos = prompt("Ingrese la segunda edad Porfavor");
+	perimetro = (2 * (ancho + largo));
 
-	edadDos = parseInt(edadDos);
-
-	suma = (edadUno + edadDos);
-
-	alert("Ustedes son " +nombreUno+ " y " +nombreDos+  " , sus edades son " +edadUno+ " y " +edadDos+ " ,y la suma de sus edades es " +suma);
-
+	alert("El perimetro es: " +perimetro);
 }
+/*
+Bienvenidos. 
+Realizar el algoritmo que pida el ancho y el largo de un 
+rectángulo por prompt y que muestre el perímetro por alert.
+*/

@@ -1,111 +1,122 @@
 function mostrar()
 {
-	var nombre;
-	var sexo;
-	var estadoCivil
-	var cantidad;
-	var importeTotal;
-	var repuesta;
-	var mayorCantidad;
-	var mayorCantidadNombre;
-	var banderaYaPaso;
-	var banderaSoltero;
-	var masGasto;
-	var menosGasto;
-	var masGastoSexo;
-	var menosGastoSexo;
-	var primerMujerImporte;
-	var primerMujerNombre;
-	var primerMujerBandera;
-	var cantidadViudos;
-	var acumuladorViudos;
-	var promedioTotal;
+	//Variable
+	var letra;
+	var numero;
+	var respuesta = true;
+	var acumuladorPositivos = 0;
+	var acumuladorNegativos = 0;
+	var bandera = false;
+	var maximo = 0;
+	var minimo = 0;
+	var letraMaximo;
+	var letraMinimo;
+	var promedioPositivos;
 
-	respuesta= "n";
-	banderaYaPaso = "no";
-	banderaSoltero = "no";
-	primerMujerBandera = 0;
-	acumuladorViudos = 0;
-	cantidadViudos = 0;
+	//Contador
+	var contador = 0;
+	var contadorImpares = 0;
+	var contadorPares = 0;
+	var contadorCeros = 0;
+	var contadorPositivos = 0;
+	var contadorNegativos = 0;
 	
-	while(respuesta != "n")
+	while (respuesta == true)
 	{
-	nombre = prompt("Ingrese nombre");
-	sexo = prompt("Ingrese sexo");
-	while(sexo != "f" && sexo != "m")
-	{
-		sexo = prompt("Ingrese sexo");
-	}
-	estadoCivil= prompt("Ingrese estadoCivil");
-	while(estadoCivil != "s" && estadoCivil != "c" && estadoCivil != "casado" && estadoCivil != "viuda")
-	{
-		estadoCivil= prompt("Ingrese estadoCivil");
-	}
-	cantidad= prompt("Ingrese cantidad");
-	while(cantidad < "0" && cantidad isNaN(cantidad))
-	{
-		cantidad= prompt("Ingrese cantidad");
-		cantidad=parseInt(cantidad);
-	}
-	importeTotal= prompt("Ingrese importeTotal");
-	while(importeTotal < "0" && importeTotal isNaN(importeTotal))
-	{
-		importeTotal= prompt("Ingrese importeTotal");
-		importeTotal=parseInt(importeTotal);
-	}
-	//ANALISIS
+		contador++;
 
-	if(banderaYaPaso == "no")
-	{
-		banderaYaPaso = "si";
-		mayorCantidad = cantidad;
-		mayorCantidadNombre = nombre;
-	} else
-	{
-		if(cantidad > mayorCantidad)
+		letra = prompt("Ingrese una letra")
+
+		while (isNaN(letra) == false)
 		{
-			mayorCantidad = cantidad;
-			mayorCantidadNombre = nombre;
+			letra = prompt("La letra es incorrecta ingrese otra");
 		}
-	}
 
-	if(estadoCivil=="soltero")
-	{
-		if(banderaSoltero == "no")
-		{
-			banderaSoltero == "si";
-			masGasto = importeTotal;
-			menosGasto = importeTotal;
-			masGastoSexo = sexo;
-			menosGastoSexo = sexo;
+		numero = prompt("Ingrese un numero (entre -100 y 100) " +contador+ ": ");
 
-		} else
+		numero = parseInt(numero);
+
+		while (isNaN(numero) == true || numero < -100 || numero > 100)
 		{
-			if(importeTotal > masGasto)
-			{
-				masGasto = importeTotal;
-				masGastoSexo = sexo;
-			}
-			if(importeTotal < menosGasto)
-			{
-				menosGasto = importeTotal;
-				menosGastoSexo = sexo;
-			}
+			numero = prompt ("El numero ingresado es incorrecto, ingrese nuevamente un numero entre -100 y 100");
+		
+			numero = parseInt(numero);
 		}
-	}
-	if(sexo == "f" && primerMujerBandera == 0)
-	{
-		primerMujerBandera = 1;
-		primerMujerNombre = nombre;
-		primerMujerImporte = importeTotal;
-	}
-	if(estadoCivil == "viudo")
-	{
-		cantidadViudos++;
-		acumuladorViudos = acumuladorViudos + importeTotal;
+		
+		if (bandera == false)
+		{
+			maximo = numero;
+
+			minimo = numero;
+
+			bandera = true;
+		}
+			
+		if (numero > maximo)
+		{
+			maximo = numero;
+
+			letraMaximo = letra;
+		}
+
+		if(numero < minimo)
+		{
+			minimo = numero;
+
+			letraMinimo = letra;
+		}
+
+		if (numero == 0)
+		{
+			contadorCeros++;	
+		}
+				
+		if (numero % 2 == 0)
+		{
+			contadorPares++;
+		}
+
+		else
+		{
+			contadorImpares++;
+		}
+
+		if (numero > 0)
+		{
+			acumuladorPositivos = (acumuladorPositivos + numero);
+
+			contadorPositivos++;
+
+			promedioPositivos = (acumuladorPositivos / contadorPositivos);
+		}
+			
+		else
+		{
+			contadorNegativos++;
+
+			acumuladorNegativos = (acumuladorNegativos + numero);	
+		}
+
+		respuesta = confirm("¿Quieres ingresar otro numero?");	
 	}
 
-	respuesta = prompt("Ingrese (n) para salir");
-	}
-	promedioTotal = cantidadViudos / acumuladorViudos;
+	document.write("<br> La cantidad de numeros pares es: " +contadorPares);
+	document.write("<br> La cantidad de numeros Impares es: " +contadorImpares);
+	document.write("<br> La cantidad de ceros es: " +contadorCeros);
+	document.write("<br> El promedio de todos los numeros positovos ingresados es: " +promedioPositivos);
+	document.write("<br> La suma de todos los numeros negativos es: " +acumuladorNegativos);
+	document.write("<br> El número es: " +maximo+ " y la letra es: " +letraMaximo+ " del maximo.");
+	document.write("<br> El número es: " +minimo+ " y la letra es: " +letraMinimo+ " del minimo.");
 }
+
+/*
+Bienvenidos. 
+Realizar el algoritmo que permita iterar el ingreso de dos datos, una letra y un número entre -100 y 100 (validar) 
+hasta que el usuario quiera e informar al terminar el ingreso por document.write:
+a) La cantidad de números pares. 
+b) La cantidad de números impares. 
+c) La cantidad de ceros. 
+d) El promedio de todos los números positivos ingresados. 
+e) La suma de todos los números negativos. 
+f) El número y la letra del máximo y el mínimo.
+*/

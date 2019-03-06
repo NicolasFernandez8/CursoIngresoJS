@@ -1,22 +1,13 @@
 function mostrar()
 {
-	var precioEfectivo;
-	var precioTarjeta;
-	var recargo;
-	var precioFinal;
+  	var nombre;
+  	var localidad;
 
-	precioEfectivo = prompt("Ingrese el precio con efectivo porfavor");
+  	nombre = document.getElementById('elNombre').value;
 
-	precioEfectivo = parseInt(precioEfectivo);
+  	localidad = document.getElementById('laLocalidad').value;
+
+  	alert("usted es " +nombre+ " y vive en la localidad de " +localidad);
 
 
-	precioTarjeta = prompt("Ingrese el precio con tarjeta porfavor");
- 
-	precioTarjeta = parseInt(precioTarjeta);
-
-	recargo = (precioTarjeta * 10 / 100);
-
-	precioFinal = (precioEfectivo + recargo);
-
-	alert("El precio del producto en efectivo es: $" +precioEfectivo+ " , con tarjeta tiene un recargo del 10% que seria $" +recargo+ " de recargo , contadole final " +precioFinal);
 }

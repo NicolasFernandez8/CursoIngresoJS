@@ -1,74 +1,90 @@
-/*
-Realizar un algoritmo que permita el ingreso del nombre, el ancho, el alto y el peso de 5 productos .Validar todos los datos, sabiendo que no puede tener más de 10 de ancho y 10 de alto, y su peso no puede superar los 1000 kilos. Informar: 
-a- el peso más pesado
-b- la altura más alta
-c- el menor ancho.
-d- la cantidad que tiene un peso entre 300 y 600 kilos.  
-*/
 function mostrar()
 {
-	var nombre;
-	var ancho;
-	var largo;
-	var peso;
-	var contador;
-	var masPesado;
-	var masAlto;
-	var menorAncho;
-	var contador300e600;
+	//Variables
+	var nota;
+	var sexo;
+	var mensaje;
+	var respuesta = true;
+	var notaMinima;
+	var promedioTotal;
+	var acumulador = 0;
+	var bandera = false;
+	var sexoNotaMinima;
+	var mensajeUno;
+	var mensajeDos;
+	var mensajeTres;
 
+	//Contadores
+	var contador = 0;
+	var contadorVaronesNotaAlta = 0;
 
-	contador=0
-
-	while(contador<5)
+	while (contador < 5)
 	{
-	nombre = prompt("ingrese un nombre");
-	ancho = prompt("ingrese un ancho");
-	ancho = parseInt(ancho);
+		contador++;
+
+		nota = prompt("Ingrese una nota (entre 0 y 10) " +contador+ ": ");
+
+		nota = parseInt(nota);
+
+		while (isNaN(nota) == true || nota < 0 || nota > 10)
+		{
+			nota = prompt("La nota ingresada es incorrecta, ingrese nuevamente una nota entre 0 y 10.")
+			
+			nota = parseInt(nota);
+		}
+
+		sexo = prompt("Ingrese un sexo f/m.");
+
+		while (isNaN(sexo) == false || sexo != "f" && sexo != "m")
+		{
+			sexo = prompt("El sexo es incorrecto ingrese nuevamente un sexo f o m.");
+		}
+		
+		if (sexo == "m" && nota > 5) 
+		{
+			contadorVaronesNotaAlta++;
+
+			mensajeUno = "La cantidad de varones que su nota haya sido mayor o igual a seis es: " +contadorVaronesNotaAlta;	
+		}	
 	
-	//VALIDACION
-	while(ancho<0 || ancho>10)
-	{
-		ancho = prompt("ingrese el ancho");
-		ancho = parseInt(ancho);
-	}
-	//VALIDACION
-	while(largo<0 || largo>10)
-	{
-		largo = prompt("ingrese el largo");
-		largo = parseInt(largo);
-	}
-	//VALIDACION
-	while(peso<0 || peso >1000)
-	{
-		peso = prompt("ingrese el peso")
-		peso = parseInt(peso);
-	}
-	contador++;
-
-	//ANALISIS
-	if(contador==1)
-	{
-		masAlto=largo;
-		masPesado=peso;
-		masAncho=ancho;
-	}else
-	{
-		if(largo>masAlto)
+		if (bandera == false)
 		{
-			masAlto=alto
+			notaMinima = nota;
+
+			sexoNotaMinima = sexo;
+
+			bandera = true;
 		}
-		if(peso>masPesado)
+					
+		if (nota < notaMinima)
 		{
-			masPesado=peso;
+			notaMinima = nota;
+		
+			sexoNotaMinima = sexo;
+			
+			mensajeDos = "La nota mas baja es: " +notaMinima+ " y el sexo es: " +sexoNotaMinima;	
 		}
-		if(ancho<menorAncho)
-		{
-			menorAncho=ancho;
-		}
-	}//fin else
 
+		acumulador = (acumulador + nota);
 
-	}//fin while
+		promedioTotal = (acumulador / 5);
 
-}//fin de funcion
+		mensajeTres = "El promedio total es de: " +promedioTotal;
+
+		respuesta = confirm("¿Quieres ingresar otra nota?");
+	}
+
+	alert(mensajeUno);
+	alert(mensajeDos);
+	alert(mensajeTres);	
+}
+
+/*
+Bienvenidos. 
+Realizar el algoritmo que permita el ingreso por prompt de las notas 
+(validar entre 0 y 10) , el sexo (validar el sexo “f” o “m”) de 5 alumnos,
+informar por alert: 
+a) El promedio de las notas totales. 
+b) La nota más baja y el sexo de esa persona. 
+c) La cantidad de varones que su nota haya sido mayor o igual a 6.
+*/
