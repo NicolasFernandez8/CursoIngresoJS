@@ -1,109 +1,120 @@
 function mostrar()
 {
-	//Varibles
-	var marcaProducto;
+	//Variables
+	var animal;
 	var peso;
 	var temperatura;
-	var marcaMasPesada;
-	var promedioTotal;
-	var pesoMaximo = 0;
-	var pesoMinimo = 0;
+	var animalMasPesado;
+	var tempaAnimalPesado;
+	var pesoMaximoBajoCero = 0;
+	var pesoMinimoBajoCero = 0;
 
 	//Variedad
-	var acumuladorPeso = 0;
 	var bandera = false;
 	var respuesta = true;
+	var acumuladorPeso = 0;
 
 	//Contador
 	var contador = 0;
-	var contadorTempPares = 0;
-	var contadorProduc0grados = 0;
+	var contadorAnima0grados = 0;
+	var contadorPares = 0;
+
 
 	while (respuesta == true)
 	{
 		contador++;
 
-		marcaProducto = prompt("Ingresar marca del producto");
+		animal = prompt("Ingrese un animal");
 
-		peso = prompt("Ingresa un peso (entre 1 y 100) " +contador+ ": ");
+		while (isNaN(animal) == false)
+		{
+			animal = prompt("El animal ingresado es incorrecto, ingreselo nuevamente");
+		}
+
+		peso = prompt("Ingrese un peso (entre 1 y 1000) " +contador+ ": ");
 
 		peso = parseInt(peso);
 
-		while (isNaN(peso) == true || peso < 1 || peso > 100)
+		while (isNaN(peso) == true || peso < 1 || peso > 1000)
 		{
-			peso = prompt("El peso ingresado es incorrecto, ingrese un peso nuevamente entre 1 y 100");
+			peso = prompt("El peso ingresado es incorrecto, ingrese otro nuevamente entre 1 y 1000");
 
 			peso = parseInt(peso);
 		}
 
-		temperatura = prompt("Ingrese una temperatura (entre -30 y 30)");
+		temperatura = prompt("Ingrese un temperatura (entre 30 y -30) " +contador+ ": ");
 
 		temperatura = parseInt(temperatura);
 
 		while (isNaN(temperatura) == true || temperatura < -30 || temperatura > 30)
 		{
-			temperatura = prompt("La temperatura ingresada es incorreta, ingrese una temperatura nuevamente entre -30 y 30");
+			temperatura = prompt("El temperatura ingresado es incorrecto, ingrese otro nuevamente entre -30 y 30");
 
 			temperatura = parseInt(temperatura);
-		}
-		
-		if (temperatura % 2 == 0) 
-		{
-			contadorTempPares++;
-		}
-
-		if (temperatura < 0)
-		{
-			contadorProduc0grados++;
 		}
 
 		if (bandera == false)
 		{
-			marcaMasPesada = marcaProducto;
+			animalMasPesado = animal;
 
-			pesoMaximo = peso;
+			tempaAnimalPesado = temperatura;
 
-			pesoMinimo = peso;
+			pesoMaximoBajoCero = peso;
 
-			bandera = true;
+			pesoMinimoBajoCero = peso;
+
+			bandera == true;
 		}
 
-		if (peso > pesoMaximo)
+		if (peso > animalMasPesado)
 		{
-			pesoMaximo = peso;
+			animalMasPesado = animal;
 
-			marcaMasPesada = marcaProducto;
+			tempaAnimalPesado = temperatura;	
+		}
+
+	 	else if (temperatura < 0)
+		{
+			if(peso > pesoMaximoBajoCero)
+			{
+				pesoMaximoBajoCero = peso;
+			}
+			else
+			{
+				pesoMinimoBajoCero = peso;
+			}
 		}
 		
-		else 
+		if (temperatura < 0)
 		{
-			pesoMinimo = peso;
+			contadorAnima0grados++;
 		}
-	
-		acumuladorPeso = (acumuladorPeso + peso);
+
+		if (temperatura % 2 == 0)
+		{
+			contadorPares++;
+		}
+
+		acumuladorPeso = (acumuladorPeso + peso)
 
 		promedioTotal = (acumuladorPeso / contador);
 
 		respuesta = confirm("¿Quieres ingresar otro peso?");
 	}
-	
-	document.write("<br> La cantidad de temperatura pares es: " +contadorTempPares);
-	document.write("<br> La marca del producto mas pesado es: " +marcaMasPesada);
-	document.write("<br> La cantidad de productos que se conservan a menos de 0 grados son: " +contadorProduc0grados);
-	document.write("<br> El promedio de peso de todos los productos es: " +promedioTotal);
-	document.write("<br> El peso maximo es: " +pesoMaximo+ " y el peso minimo es: " +pesoMinimo);
-}
 
+	document.write("<br> La cantidad de temperaturas pares es: " +contadorPares);
+	document.write("<br> La cantidad de animales que viven a menos de 0 grados son: " +contadorAnima0grados);
+	document.write("<br> El promedio del peso de todos los animales es: " +promedioTotal);
+	document.write("<br> El peso máximo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMaximoBajoCero);
+	document.write("<br> El peso minimo de todos los animales cuyas temperaturas sean bajo cero es: " +pesoMinimoBajoCero);
+}
 /*
 Bienvenidos. 
-Realizar el algoritmo que permita ingresar la marca del producto, 
-el peso el cual debe ser entre 1 y 100 (validar), 
-la temperatura de almacenamiento(entre -30 y 30) 
-hasta que el usuario quiera e informar al terminar el ingreso 
-por document.write:
+Realizar el algoritmo que permita ingresar el nombre de un animal del zoológico, el peso el cual debe ser entre 1 y 1000 y 
+la temperatura del hábitat (entre -30 y 30) hasta que el usuario quiera e informar al terminar el ingreso por document.write:
 a) La cantidad de temperaturas pares. 
-b) La marca del producto más pesado 
-c) La cantidad de productos que se conservan a menos de 0 grados. 
-d) El promedio del peso de todos los productos.
-f) El peso máximo y el mínimo.
+b) El nombre y temperatura del animal más pesado 
+c) La cantidad de animales que viven a menos de 0 grados. 
+d) El promedio del peso de todos los animales.	
+f) El peso máximo y el mínimo de todos los animales cuyas temperaturas sean bajo cero.
 */

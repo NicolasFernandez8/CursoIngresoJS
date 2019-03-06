@@ -1,54 +1,44 @@
 function mostrar()
 {
-	var planetas;
+	var diaDeSemana;
 	var mensaje;
 
-	planetas = prompt("Ingrese un planeta del sistema solar");
+	diaDeSemana = prompt("Ingrese un dia de la semana");
 
-	switch (planetas)
+	switch (diaDeSemana)
 	{
-		case "mercurio":
-		case "venus":
+		case "sabado":
+		case "domingo":
 
-			mensaje = "acá hace más calor.";
-
-			break;
-
-		case "tierra":
-
-			mensaje = "Acá vivimos.";
+			mensaje = "Buen finde.";
 
 			break;
 
-		case "marte":
-		case "jupiter":
-		case "saturno":
-		case "urano":
-		case "neptuno":
-		
-		case "pluton":
+		case "lunes":
+		case "martes":
+		case "miercoles":
+		case "jueves":
+		case "viernes":
 
-			mensaje = "Acá hace más frio.";
+			mensaje = "A trabajar.";
 
 			break;
 
-			default:
+		default:
 
-				mensaje = "No es un planeta valido.";
+			mensaje = "No es un dia valido.";
 
-				break;
+			break;
 	}
 
 	alert(mensaje);
 }
-/*
-Bienvenidos (SWITCH). 
-pedir el ingreso de un planeta del sistema solar 
-Si es la tierra mostrar "acá vivimos". 
-Si está más cerca del sol, "acá hace más calor". 
-Si está más lejos del sol, "acá hace más frio". 
-Si no es un planeta valido informarlo. 
-Aclaración: los planetas se ingresan en minúscula 
-(Mercurio y Venus están antes que la tierra).
 
+/*
+Bienvenidos. 
+(SWITCH)pedir el ingreso de un día de la semana, 
+si es fin de semana mostrar " buen finde", 
+si es día hábil “ a trabajar”, 
+si no es un día valido, también informarlo, 
+usar una sola ventana alert.
 */

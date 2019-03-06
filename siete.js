@@ -1,89 +1,90 @@
 function mostrar()
 {
-	//Variables
+	//Variales
 	var nota;
 	var sexo;
-	var mensaje;
-	var respuesta = true;
-	var notaMinima;
 	var promedioTotal;
-	var acumulador = 0;
-	var bandera = false;
-	var sexoNotaMinima;
+	var notaMasBaja;
+	var sexoNotaBaja;
 	var mensajeUno;
 	var mensajeDos;
 	var mensajeTres;
 
-	//Contadores
-	var contador = 0;
-	var contadorVaronesNotaAlta = 0;
+	//Variedad
+	var acumuladorNota = 0;
+	var bandera = false;
+	var respuesta = true;
+
+	//Contador
+	contador = 0;
+	contadorVaroNotaMayor = 0; 
+
 
 	while (contador < 5)
 	{
 		contador++;
 
-		nota = prompt("Ingrese una nota (entre 0 y 10) " +contador+ ": ");
+		nota = prompt("Ingrese la nota (entre 0 y 10) " +contador+ ": ");
 
 		nota = parseInt(nota);
 
 		while (isNaN(nota) == true || nota < 0 || nota > 10)
 		{
-			nota = prompt("La nota ingresada es incorrecta, ingrese nuevamente una nota entre 0 y 10.")
-			
-			nota = parseInt(nota);
+			nota = prompt("La nota ingresada es incorrecta, ingrese otra nota nuevamente entre 0 y 10");
+
+			nota = parseInt(nota);	
 		}
 
-		sexo = prompt("Ingrese un sexo f/m.");
+		sexo = prompt("Ingrese el sexo f/m");
 
 		while (isNaN(sexo) == false || sexo != "f" && sexo != "m")
 		{
-			sexo = prompt("El sexo es incorrecto ingrese nuevamente un sexo f o m.");
+			sexo = prompt("El sexo ingresado es incorrecto, ingrese otra nuevamente f/m");
 		}
-		
-		if (sexo == "m" && nota > 5) 
-		{
-			contadorVaronesNotaAlta++;
 
-			mensajeUno = "La cantidad de varones que su nota haya sido mayor o igual a seis es: " +contadorVaronesNotaAlta;	
-		}	
-	
 		if (bandera == false)
 		{
-			notaMinima = nota;
+			notaMasBaja = nota;
 
-			sexoNotaMinima = sexo;
+			sexoNotaBaja = sexo;
 
 			bandera = true;
 		}
-					
-		if (nota < notaMinima)
+
+		if (nota < notaMasBaja)
 		{
-			notaMinima = nota;
-		
-			sexoNotaMinima = sexo;
-			
-			mensajeDos = "La nota mas baja es: " +notaMinima+ " y el sexo es: " +sexoNotaMinima;	
+			notaMasBaja = nota;
+
+			sexoNotaBaja = sexo;
+
+			mensajeUno = "La nota mas baja es: " +notaMasBaja+ " y el sexo de esa persona es: " +sexoNotaBaja;
 		}
 
-		acumulador = (acumulador + nota);
+		if (sexo == "m" && nota > 5)
+		{
+			contadorVaroNotaMayor++;
 
-		promedioTotal = (acumulador / 5);
+			mensajeDos = "La cantidad de varones que su no haya sido mayor o igual a seis es: " +contadorVaroNotaMayor;
+		}
 
-		mensajeTres = "El promedio total es de: " +promedioTotal;
+		acumuladorNota = (acumuladorNota + nota);
 
-		respuesta = confirm("¿Quieres ingresar otra nota?");
+		promedioTotal = (acumuladorNota / contador);
+
+		mensajeTres = "El promedioTotal es de: " +promedioTotal;
+
+		respuesta = confirm("¿Quiere ingresar otra nota?");
 	}
 
 	alert(mensajeUno);
 	alert(mensajeDos);
-	alert(mensajeTres);	
+	alert(mensajeTres);
 }
 
 /*
 Bienvenidos. 
-Realizar el algoritmo que permita el ingreso por prompt de las notas 
-(validar entre 0 y 10) , el sexo (validar el sexo “f” o “m”) de 5 alumnos,
-informar por alert: 
+Realizar el algoritmo que permita el ingreso por prompt de las notas (validar entre 0 y 10) , 
+el sexo (validar el sexo “f” o “m”) de 5 alumnos, informar por alert: 
 a) El promedio de las notas totales. 
 b) La nota más baja y el sexo de esa persona. 
 c) La cantidad de varones que su nota haya sido mayor o igual a 6.
